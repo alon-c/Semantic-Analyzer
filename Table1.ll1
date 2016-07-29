@@ -1,0 +1,12 @@
+terminals=MAIN,LC,RC,INT,ID,NUM,ASSIGN,PLUS,MINUS,MULT,DIV,SC,EOF
+#program:
+PRG=MAIN;LC;STMTS;RC;EOF,,,INT;STMT_DEC;SC;PRG,,,,,,,,,
+#statements
+STMTS=,LC;STMTS;RC;STMTS,,INT;STMT_DEC;SC;STMTS,ID;ASSIGN;EXPR;SC;STMTS,,,,,,,,
+#single statement
+#statement dec
+STMT_DEC=,,,,ID;STMT_DEC,,,,,,,,
+#expression
+EXPR=,,,,ID;EXPR_TAIL,NUM;EXPR_TAIL,,,,,,,
+#expression tail
+EXPR_TAIL=,,,,,,,PLUS;EXPR,MINUS;EXPR,MULT;EXPR,DIV;EXPR,,
